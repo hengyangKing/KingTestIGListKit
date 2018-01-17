@@ -12,6 +12,7 @@
 #import "Model2.h"
 #import "IGListSectionController_1.h"
 #import "IGListSectionController_2.h"
+#import "Masonry.h"
 @interface ViewController ()<IGListAdapterDataSource>
 @property (nonatomic, strong) IGListAdapter *adapter;
 @property (nonatomic, weak) UICollectionView *collectionView;
@@ -53,12 +54,14 @@
     return _adapter;
 }
 -(void)setupView {
-    [self.collectionView setFrame:self.view.bounds];
+    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
     //依赖
     self.adapter.collectionView = self.collectionView;
     self.adapter.dataSource = self;
     __weak typeof(self) weakself = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         for (int i = 0; i<10; i++) {
             Model *model = [Model new];
@@ -83,6 +86,9 @@
         [weakself.adapter performUpdatesAnimated:YES completion:^(BOOL finished) {
             
         }];
+    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakself.dataSourceArr removeObjectAtIndex:0];
     });
 }
 

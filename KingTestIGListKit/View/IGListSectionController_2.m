@@ -28,7 +28,8 @@
 #pragma mark - OverWrite
 -(UIEdgeInsets)inset
 {
-    return UIEdgeInsetsMake(5, 5, 5, 5);
+//    (CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
+    return UIEdgeInsetsMake(5, 0, 5, 0);
 }
 -(CGSize)sizeForItemAtIndex:(NSInteger)index
 {
@@ -40,17 +41,16 @@
 {
     Cell *cell = [self.collectionContext dequeueReusableCellOfClass:[Cell class] forSectionController:self atIndex:index];
     [cell.contentView setBackgroundColor:[UIColor greenColor]];
-    Model *model = self.datas[index];
-    [cell setText:model.num];
+    if (self.datas.count) {
+        Model *model = [self.datas objectAtIndex:index];
+        cell.text(model.num);
+    }
     return cell;
 }
 - (void)didUpdateToObject:(id)object {
-    
-    NSLog(@"object 2 ---  %@",object);
     if (object) {
         [self.datas addObject:object];
     }
-    
 }
 
 

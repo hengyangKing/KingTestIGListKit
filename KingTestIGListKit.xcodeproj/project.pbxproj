@@ -82,18 +82,9 @@
 			children = (
 				96DBA9741FFE0B400097F93F /* AppDelegate.h */,
 				96DBA9751FFE0B400097F93F /* AppDelegate.m */,
-				96DBA9771FFE0B400097F93F /* ViewController.h */,
-				96DBA9781FFE0B400097F93F /* ViewController.m */,
-				96DBA99D1FFE12EB0097F93F /* Model.h */,
-				96DBA99E1FFE12EB0097F93F /* Model.m */,
-				96DBA9A01FFE13540097F93F /* Model2.h */,
-				96DBA9A11FFE13540097F93F /* Model2.m */,
-				96DBA9A31FFE14F60097F93F /* IGListSectionController_1.h */,
-				96DBA9A41FFE14F60097F93F /* IGListSectionController_1.m */,
-				96DBA9A61FFE150B0097F93F /* IGListSectionController_2.h */,
-				96DBA9A71FFE150B0097F93F /* IGListSectionController_2.m */,
-				96DBA9A91FFE29240097F93F /* Cell.h */,
-				96DBA9AA1FFE29240097F93F /* Cell.m */,
+				96DBA9AD1FFE37D40097F93F /* Model */,
+				96DBA9AE1FFE37F60097F93F /* Controller */,
+				96DBA9AF1FFE38050097F93F /* View */,
 				96DBA97A1FFE0B400097F93F /* Main.storyboard */,
 				96DBA97D1FFE0B400097F93F /* Assets.xcassets */,
 				96DBA97F1FFE0B400097F93F /* LaunchScreen.storyboard */,
@@ -101,6 +92,39 @@
 				96DBA9831FFE0B400097F93F /* main.m */,
 			);
 			path = KingTestIGListKit;
+			sourceTree = "<group>";
+		};
+		96DBA9AD1FFE37D40097F93F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96DBA99D1FFE12EB0097F93F /* Model.h */,
+				96DBA99E1FFE12EB0097F93F /* Model.m */,
+				96DBA9A01FFE13540097F93F /* Model2.h */,
+				96DBA9A11FFE13540097F93F /* Model2.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96DBA9AE1FFE37F60097F93F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96DBA9771FFE0B400097F93F /* ViewController.h */,
+				96DBA9781FFE0B400097F93F /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		96DBA9AF1FFE38050097F93F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				96DBA9A31FFE14F60097F93F /* IGListSectionController_1.h */,
+				96DBA9A41FFE14F60097F93F /* IGListSectionController_1.m */,
+				96DBA9A61FFE150B0097F93F /* IGListSectionController_2.h */,
+				96DBA9A71FFE150B0097F93F /* IGListSectionController_2.m */,
+				96DBA9A91FFE29240097F93F /* Cell.h */,
+				96DBA9AA1FFE29240097F93F /* Cell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E018013A2B6610E05FC29E7B /* Pods */ = {

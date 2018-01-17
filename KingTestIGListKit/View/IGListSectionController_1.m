@@ -9,10 +9,11 @@
 #import "IGListSectionController_1.h"
 #import "Cell.h"
 #import "Model.h"
-@interface IGListSectionController_1()
+@interface IGListSectionController_1()<IGListCollectionContext>
 @property(nonatomic,strong)NSMutableArray *datas;
 @end
 @implementation IGListSectionController_1
+
 -(NSMutableArray *)datas
 {
     if (!_datas) {
@@ -23,7 +24,8 @@
 #pragma mark - OverWrite
 -(UIEdgeInsets)inset
 {
-    return UIEdgeInsetsMake(10, 10, 10, 10);
+//    (CGFloat top, CGFloat left, CGFloat bottom, CGFloat right)
+    return UIEdgeInsetsMake(10, 0, 10, 0);
 }
 -(CGSize)sizeForItemAtIndex:(NSInteger)index
 {
@@ -35,19 +37,32 @@
 {
     Cell *cell = [self.collectionContext dequeueReusableCellOfClass:[Cell class] forSectionController:self atIndex:index];
     [cell.contentView setBackgroundColor:[UIColor redColor]];
-    Model *model = self.datas[index];
-    [cell setText:model.num];
+    if (self.datas.count) {
+        Model *model = [self.datas objectAtIndex:index];
+        cell.text(model.num);
+    }
     return cell;
 }
 
 - (void)didUpdateToObject:(id)object {
     
-    NSLog(@"object 1 --- %@",object);
     if (object) {
         [self.datas addObject:object];
     }
 }
+- (void)didSelectItemAtIndex:(NSInteger)index {
+    [self deselectItemAtIndex:index sectionController:self animated:YES];
+    
+}
 
+- (void)didDeselectItemAtIndex:(NSInteger)index {
+    
+}
+
+-(void)deselectItemAtIndex:(NSInteger)index sectionController:(IGListSectionController *)sectionController animated:(BOOL)animated
+{
+    
+}
 
 
 @end

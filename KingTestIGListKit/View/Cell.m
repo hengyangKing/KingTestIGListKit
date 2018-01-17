@@ -27,14 +27,16 @@
         make.top.left.right.bottom.mas_equalTo(0);
     }];
 }
-
--(void)setText:(NSString *)text
+-(void (^)(NSString *))text
 {
-    _text = [text copy];
-    UIView *view = [self viewWithTag:1000];
-    if ([view isMemberOfClass:[UILabel class]]) {
-        UILabel *label = (UILabel *)view;
-        [label setText:_text];
-    }
+    return ^(NSString *str){
+        UIView *view = [self viewWithTag:1000];
+        if ([view isMemberOfClass:[UILabel class]]) {
+            UILabel *label = (UILabel *)view;
+            [label setText:str];
+        }
+    };
 }
+
+
 @end

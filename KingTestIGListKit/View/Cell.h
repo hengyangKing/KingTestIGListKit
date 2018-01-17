@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface Cell : UICollectionViewCell
-@property(nonatomic,copy)NSString *text;
+@property(nonatomic,copy,readonly)void (^text)(NSString *);
 @end
